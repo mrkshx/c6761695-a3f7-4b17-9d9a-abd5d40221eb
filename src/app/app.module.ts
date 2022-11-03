@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -18,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
+    MatButtonModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
