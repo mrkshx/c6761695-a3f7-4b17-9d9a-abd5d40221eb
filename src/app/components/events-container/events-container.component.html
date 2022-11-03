@@ -1,11 +1,4 @@
 <div id="events-container">
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
+    <app-event-card *ngFor="let event of events" title="{{event.title}}" flyer="{{event.flyerFront}}" venueName="{{event.venue.name}}" startTime="{{event.startTime}}" endTime="{{event.endTime}}"></app-event-card>
 </div>
 
