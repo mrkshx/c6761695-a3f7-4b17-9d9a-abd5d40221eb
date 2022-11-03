@@ -11,9 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { EventsViewComponent } from './components/events-view/events-view.component';
+import { EventsContainerComponent } from './components/events-container/events-container.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, EventsViewComponent],
+  declarations: [AppComponent, HeaderComponent, EventsViewComponent, EventsContainerComponent, EventCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
