@@ -10,9 +10,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
+import { EventsViewComponent } from './components/events-view/events-view.component';
+import { EventsContainerComponent } from './components/events-container/events-container.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    EventsViewComponent,
+    EventsContainerComponent,
+    EventCardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +32,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
