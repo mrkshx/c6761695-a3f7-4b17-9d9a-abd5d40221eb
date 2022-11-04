@@ -8,8 +8,8 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class EventCardComponent implements OnInit {
 
-  @Input() id: string = '';
-  @Input() title: string = '';
+  @Input() id: string = ''
+  @Input() title: string = ''
   @Input() flyer: string = ''
   @Input() venueName: string = ''
   @Input() venueDirection: string = ''

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { EventsDataService } from './events-data.service'
 
 @Injectable({
   providedIn: 'root'
@@ -6,12 +7,14 @@ import { Injectable } from '@angular/core';
 export class ShoppingCartService {
   private selectedEvents: any[] = []
 
-  constructor() { }
+  constructor(public eventsData: EventsDataService) { }
 
   addEvent(id: string) {
     if (!this.selectedEvents.includes(id)) {
       this.selectedEvents.push(id)
+      this.eventsData.removeUnselectedEvent(id)
     }
+
   }
 
   getEventsCount() {
