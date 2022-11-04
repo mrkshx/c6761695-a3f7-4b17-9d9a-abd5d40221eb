@@ -15,6 +15,7 @@ import { EventsContainerComponent } from './components/events-container/events-c
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatBadgeModule,
     MatCardModule,
-    HttpClientModule
+    MatListModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
