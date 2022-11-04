@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class EventsDataService {
-  private eventsData: object[]= []
+  private eventsData: any[]= []
 
   constructor(private http: HttpClient) {}
 
   getEventsData() {
+    return this.eventsData
+  }
+
+  fetchEventsData() {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
@@ -17,7 +21,6 @@ export class EventsDataService {
           this.eventsData.push(event)
         })
         }
-      );
-    return this.eventsData
+      )
   }
 }

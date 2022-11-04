@@ -8,12 +8,9 @@ import { EventsDataService } from 'src/app/services/events-data.service';
 })
 export class EventsContainerComponent implements OnInit {
 
-  events: any[] = []
-
-  constructor(private eventsData: EventsDataService) { }
+  constructor(public eventsData: EventsDataService) { }
 
   ngOnInit(): void {
-    this.events = this.eventsData.getEventsData()
   }
 
 }
