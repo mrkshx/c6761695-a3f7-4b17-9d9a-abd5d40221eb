@@ -7,6 +7,6 @@
         <mat-icon>filter_alt</mat-icon>
     </button>
     <button id="shopping_cart_btn" mat-icon-button aria-label="Go to shopping cart">
-        <mat-icon matBadge="15" matBadgeColor="warn" matBadgePosition="after">shopping_cart</mat-icon>
+        <mat-icon matBadge={{shoppingCart.getEventsCount()}} [matBadgeHidden]="shoppingCart.getEventsCount() === 0" matBadgeColor="warn" matBadgePosition="after">shopping_cart</mat-icon>
     </button>
 </mat-toolbar>

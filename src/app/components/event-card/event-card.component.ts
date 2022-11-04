@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-event-card',
@@ -7,12 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EventCardComponent implements OnInit {
 
-  @Input() title: string = '';
+  @Input() id: string = ''
+  @Input() title: string = ''
   @Input() flyer: string = ''
   @Input() venueName: string = ''
   @Input() venueDirection: string = ''
   @Input() startTime: string = ''
   @Input() endTime: string = ''
+
+  constructor(public shoppingCart: ShoppingCartService) { }
 
   ngOnInit(): void {
   }
