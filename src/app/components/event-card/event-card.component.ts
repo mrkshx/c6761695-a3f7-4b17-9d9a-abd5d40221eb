@@ -10,6 +10,7 @@ export class EventCardComponent implements OnInit {
   @Input() title: string = '';
   @Input() flyer: string = ''
   @Input() venueName: string = ''
+  @Input() venueDirection: string = ''
   @Input() startTime: string = ''
   @Input() endTime: string = ''
 
