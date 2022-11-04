@@ -5,10 +5,12 @@
     </mat-card-header>
     <img class="flyer-image" mat-card-image src={{flyer}} alt="flyer of {{title}}">
     <mat-card-content>
-        <h3>
-            <mat-icon class="location-icon">location_on</mat-icon>
-            {{venue.name}}
-        </h3>
+        <a href={{venueDirection}} target="_blank">
+            <h3>
+                <mat-icon class="location-icon">location_on</mat-icon>
+                {{venueName}}
+            </h3>
+        </a>
         <p>Starts: {{startTime | date: 'dd.MM.YYYY, HH:mm' }}</p>
         <p>Ends: {{endTime | date: 'dd.MM.YYYY, HH:mm'}}</p>
     </mat-card-content>
