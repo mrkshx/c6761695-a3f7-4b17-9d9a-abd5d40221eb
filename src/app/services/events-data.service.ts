@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 })
 export class EventsDataService {
   private eventsData: any[] = []
-  private unselectedEventsData: any[] = []
   private dates: string[] = []
   
   public filterKeywordSubject = new Subject<string>();
@@ -21,12 +20,8 @@ export class EventsDataService {
     return this.eventsData
   }
 
-  getUnselectedEventsData() {
-    return this.unselectedEventsData
-  }
-
   saveDates() {
-    this.unselectedEventsData.forEach((event: any) => {
+    this.eventsData.forEach((event: any) => {
         if (!this.dates.includes(event.date)) {
           this.dates.push(event.date)
         }
@@ -36,8 +31,8 @@ export class EventsDataService {
   }
 
   removeUnselectedEvent(id: string) {
-    const eventIndex = this.unselectedEventsData.findIndex(e => e._id === id)
-    this.unselectedEventsData.splice(eventIndex, 1)
+    const eventIndex = this.eventsData.findIndex(e => e._id === id)
+    this.eventsData.splice(eventIndex, 1)
   }
 
   fetchEventsData() {
@@ -46,7 +41,6 @@ export class EventsDataService {
       .subscribe((data) => {
         Object.values(data).forEach((event) => {
           this.eventsData.push(event)
-          this.unselectedEventsData.push(event)
         });
         this.saveDates()
       });
