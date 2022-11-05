@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class EventsDataService {
   private eventsData: any[] = []
+  private filteredEventsData: any[] = []
   private dates: string[] = []
   
   public filterKeywordSubject = new Subject<string>();
@@ -17,11 +18,15 @@ export class EventsDataService {
   }
 
   getEventsData() {
-    return this.eventsData
+    return this.filteredEventsData
+  }
+
+  getEventbyID(id: string) {
+    return this.eventsData.find(event => event._id == id)
   }
 
   saveDates() {
-    this.eventsData.forEach((event: any) => {
+    this.filteredEventsData.forEach((event: any) => {
         if (!this.dates.includes(event.date)) {
           this.dates.push(event.date)
         }
@@ -31,8 +36,8 @@ export class EventsDataService {
   }
 
   removeUnselectedEvent(id: string) {
-    const eventIndex = this.eventsData.findIndex(e => e._id === id)
-    this.eventsData.splice(eventIndex, 1)
+    const eventIndex = this.filteredEventsData.findIndex(e => e._id === id)
+    this.filteredEventsData.splice(eventIndex, 1)
   }
 
   fetchEventsData() {
@@ -40,6 +45,7 @@ export class EventsDataService {
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
         Object.values(data).forEach((event) => {
+          this.filteredEventsData.push(event)
           this.eventsData.push(event)
         });
         this.saveDates()

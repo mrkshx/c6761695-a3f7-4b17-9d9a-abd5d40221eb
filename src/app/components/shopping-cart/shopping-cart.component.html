@@ -1,1 +1,4 @@
-<p>shopping-cart works!</p>
+<div id="shopping-cart-container">
+    <h1>Shopping Cart</h1>
+    <p *ngFor="let event of shoppingCart.getSelectedEvents()">{{event.title}}</p>
+</div>

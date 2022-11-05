@@ -5,19 +5,28 @@ import { EventsDataService } from './events-data.service'
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  private selectedEventIDs: string[] = []
   private selectedEvents: any[] = []
+
 
   constructor(public eventsData: EventsDataService) { }
 
   addEvent(id: string) {
-    if (!this.selectedEvents.includes(id)) {
-      this.selectedEvents.push(id)
+    if (!this.selectedEventIDs.includes(id)) {
+      this.selectedEventIDs.push(id)
       this.eventsData.removeUnselectedEvent(id)
     }
 
   }
 
   getEventsCount() {
-    return this.selectedEvents.length
+    return this.selectedEventIDs.length
+  }
+
+  getSelectedEvents() {
+    this.selectedEventIDs.forEach(eventID => {
+      this.selectedEvents.push(this.eventsData.getEventbyID(eventID))
+    })
+    return this.selectedEvents
   }
 }
