@@ -15,7 +15,7 @@ export class EventsContainerComponent implements OnInit {
     this.eventsData.filterKeywordSubject.subscribe(keyword => this.filterKeyword = keyword)
   }
 
-  getEventsByDate(date: string) {
-    return this.eventsData.getUnselectedEventsData().filter(event => event.date === date)
+  getEventsByDateAndKeyword(date: string) {
+    return this.eventsData.getUnselectedEventsData().filter(event => event.date === date && event.title.includes(this.filterKeyword))
   }
 }
