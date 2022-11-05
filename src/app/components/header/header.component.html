@@ -1,7 +1,7 @@
 <mat-toolbar id="header" color="primary">
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-icon id="search-icon" aria-hidden="false" aria-label="Search icon" fontIcon="search"></mat-icon>
-        <input id="search-input" matInput placeholder="Search">
+        <input id="search-input" matInput placeholder="Search" type="text" (input)="onSearchInput($event)">
     </mat-form-field>    
     <button mat-icon-button aria-label="Filter the events">
         <mat-icon>filter_alt</mat-icon>

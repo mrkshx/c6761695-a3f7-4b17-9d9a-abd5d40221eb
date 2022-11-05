@@ -1,9 +1,11 @@
 <mat-list>
   <div mat-list-item *ngFor="let date of eventsData.datesSubject | async">
-    <h2 *ngIf="getEventsByDate(date).length > 0">{{ date | date: "EEE MMM dd YYYY" }}</h2>
+    <h2 *ngIf="getEventsByDateAndKeyword(date).length > 0">
+      {{ date | date: "EEE MMM dd YYYY" }}
+    </h2>
     <div class="events-container">
       <app-event-card
-        *ngFor="let event of getEventsByDate(date)"
+        *ngFor="let event of getEventsByDateAndKeyword(date)"
         id="{{ event._id }}"
         title="{{ event.title }}"
         flyer="{{ event.flyerFront }}"
