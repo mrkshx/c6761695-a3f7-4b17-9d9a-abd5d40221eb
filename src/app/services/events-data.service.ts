@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +8,13 @@ import { Injectable } from '@angular/core';
 export class EventsDataService {
   private eventsData: any[] = []
   private unselectedEventsData: any[] = []
+  private dates: string[] = []
+  
+  public datesSubject = new Subject<string[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.fetchEventsData()
+  }
 
   getEventsData() {
     return this.eventsData
@@ -16,6 +22,16 @@ export class EventsDataService {
 
   getUnselectedEventsData() {
     return this.unselectedEventsData
+  }
+
+  saveDates() {
+    this.unselectedEventsData.forEach((event: any) => {
+        if (!this.dates.includes(event.date)) {
+          this.dates.push(event.date)
+        }
+    })
+    this.dates.sort()
+    this.datesSubject.next(this.dates)
   }
 
   removeUnselectedEvent(id: string) {
@@ -31,6 +47,7 @@ export class EventsDataService {
           this.eventsData.push(event)
           this.unselectedEventsData.push(event)
         });
+        this.saveDates()
       });
   }
 }
