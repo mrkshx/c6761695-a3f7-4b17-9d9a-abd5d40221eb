@@ -16,6 +16,6 @@ export class EventsContainerComponent implements OnInit {
   }
 
   getEventsByDateAndKeyword(date: string) {
-    return this.eventsData.getEventsData().filter(event => event.date === date && event.title.includes(this.filterKeyword))
+    return this.eventsData.getEventsData().filter(event => event.date === date && event.title.toLowerCase().includes(this.filterKeyword.toLowerCase()))
   }
 }
