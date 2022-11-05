@@ -7,10 +7,12 @@ import { EventsDataService } from 'src/app/services/events-data.service';
   styleUrls: ['./events-container.component.sass'],
 })
 export class EventsContainerComponent implements OnInit {
+  filterKeyword: string = ''
 
   constructor(public eventsData: EventsDataService) {}
 
   ngOnInit(): void {
+    this.eventsData.filterKeywordSubject.subscribe(keyword => this.filterKeyword = keyword)
   }
 
   getEventsByDate(date: string) {
