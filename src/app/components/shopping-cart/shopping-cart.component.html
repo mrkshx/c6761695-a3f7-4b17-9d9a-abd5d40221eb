@@ -1,0 +1,9 @@
+<div id="shopping-cart-container">
+  <h1>Shopping Cart</h1>
+  <div id="events-container">
+    <mat-card *ngFor="let event of shoppingCart.getSelectedEvents()">
+        <h2>{{ event.title }}</h2>
+        <p>{{ event.venue.name }} on {{ event.date | date: "dd.MM.YYYY" }}</p>
+    </mat-card>
+  </div>
+</div>

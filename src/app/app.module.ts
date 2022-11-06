@@ -16,6 +16,7 @@ import { EventCardComponent } from './components/event-card/event-card.component
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
     EventsViewComponent,
     EventsContainerComponent,
     EventCardComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,

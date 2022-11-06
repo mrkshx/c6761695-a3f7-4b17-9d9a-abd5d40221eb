@@ -1,4 +1,7 @@
 <mat-toolbar id="header" color="primary">
+    <button mat-icon-button aria-label="Go to events" routerLink="/events">
+        <mat-icon>home</mat-icon>
+    </button>
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-icon id="search-icon" aria-hidden="false" aria-label="Search icon" fontIcon="search"></mat-icon>
         <input id="search-input" matInput placeholder="Search" type="text" (input)="onSearchInput($event)">
@@ -6,7 +9,7 @@
     <button mat-icon-button aria-label="Filter the events">
         <mat-icon>filter_alt</mat-icon>
     </button>
-    <button id="shopping_cart_btn" mat-icon-button aria-label="Go to shopping cart">
+    <button id="shopping_cart_btn" mat-icon-button aria-label="Go to shopping cart" routerLink="/shoppingcart">
         <mat-icon matBadge={{shoppingCart.getEventsCount()}} [matBadgeHidden]="shoppingCart.getEventsCount() === 0" matBadgeColor="warn" matBadgePosition="after">shopping_cart</mat-icon>
     </button>
 </mat-toolbar>
