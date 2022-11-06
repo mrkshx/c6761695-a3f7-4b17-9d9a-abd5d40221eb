@@ -48,10 +48,8 @@ export class EventsDataService {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
-        Object.values(data).forEach((event: Event) => {
-          this.filteredEventsData.push(event)
-          this.eventsData.push(event)
-        });
+        this.filteredEventsData = Object.values(data)
+        this.eventsData = Object.values(data)
         this.saveDates()
       });
   }
