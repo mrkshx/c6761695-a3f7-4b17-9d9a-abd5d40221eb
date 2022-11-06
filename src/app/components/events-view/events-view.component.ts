@@ -6,19 +6,18 @@ import { EventsDataService } from 'src/app/services/events-data.service';
   templateUrl: './events-view.component.html',
   styleUrls: ['./events-view.component.sass'],
 })
-export class EventsViewComponent implements OnInit, OnChanges {
+export class EventsViewComponent implements OnInit {
+  firstDate: string = '';
+  lastDate: string = '';
+
   constructor(public eventsData: EventsDataService) {}
-  firstDate = '';
-  lastDate = '';
 
   ngOnInit(): void {
     this.getDateRange();
   }
 
-  ngOnChanges(): void {}
-
-  getDateRange() {
-    this.eventsData.datesSubject.subscribe((dates) => {
+  getDateRange(): void {
+    this.eventsData.datesSubject.subscribe((dates: string[]) => {
       this.firstDate = dates[0]
       this.lastDate = dates[dates.length - 1]
     });

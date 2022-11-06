@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSearchInput(event: any) {
+  onSearchInput(event: any): void {
     this.eventsData.filterKeywordSubject.next(event.target.value)
   }
 
