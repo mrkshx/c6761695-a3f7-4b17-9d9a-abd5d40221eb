@@ -33,7 +33,10 @@ export class EventsDataService {
         }
     })
     this.dates.sort()
-    this.datesSubject.next(this.dates)
+  }
+
+  getDates(): string[] {
+    return this.dates
   }
 
   removeUnselectedEvent(id: string): void {

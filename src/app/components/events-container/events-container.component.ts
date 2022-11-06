@@ -11,9 +11,11 @@ export class EventsContainerComponent implements OnInit {
   filterKeyword: string = ''
 
   constructor(public eventsData: EventsDataService) {}
-
+  
   ngOnInit(): void {
-    this.eventsData.filterKeywordSubject.subscribe((keyword: string)=> this.filterKeyword = keyword)
+    this.eventsData.filterKeywordSubject.subscribe((keyword: string) => {
+      this.filterKeyword = keyword
+    })
   }
 
   getEventsByDateAndKeyword(date: string) {

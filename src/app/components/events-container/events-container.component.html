@@ -1,5 +1,5 @@
 <mat-list>
-  <div mat-list-item *ngFor="let date of eventsData.datesSubject | async">
+  <div mat-list-item *ngFor="let date of eventsData.getDates()">
     <h2 *ngIf="getEventsByDateAndKeyword(date).length > 0">
       {{ date | date: "EEE MMM dd YYYY" }}
     </h2>
