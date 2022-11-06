@@ -12,7 +12,6 @@ export class EventsDataService {
   private dates: string[] = []
   
   public filterKeywordSubject = new Subject<string>();
-  public datesSubject = new Subject<string[]>();
 
   constructor(private http: HttpClient) {
     this.fetchEventsData()

@@ -3,7 +3,7 @@
     <span class="flag-icon flag-icon-gb"></span>
     LONDON
   </button>
-  <button class="rounded-btn" mat-raised-button>{{firstDate | date: 'dd.MM.YYYY'}} - {{lastDate | date: 'dd.MM.YYYY'}}</button>
+  <button class="rounded-btn" mat-raised-button>{{getDates()[0] | date: 'dd.MM.YYYY'}} - {{getDates()[getDates().length - 1] | date: 'dd.MM.YYYY'}}</button>
   <h1>Public Events</h1>
   <app-events-container></app-events-container>
 </div>
