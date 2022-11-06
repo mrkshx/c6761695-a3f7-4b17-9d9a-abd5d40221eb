@@ -16,6 +16,6 @@
         endTime="{{ event.endTime }}"
       ></app-event-card>
     </div>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="getEventsByDateAndKeyword(date).length > 0"></mat-divider>
   </div>
 </mat-list>
