@@ -1,4 +1,7 @@
 <mat-toolbar id="header" color="primary">
+    <button mat-icon-button aria-label="Go to events" routerLink="/events">
+        <mat-icon>home</mat-icon>
+    </button>
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-icon id="search-icon" aria-hidden="false" aria-label="Search icon" fontIcon="search"></mat-icon>
         <input id="search-input" matInput placeholder="Search" type="text" (input)="onSearchInput($event)">
