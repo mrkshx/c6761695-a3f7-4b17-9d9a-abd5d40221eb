@@ -11,12 +11,12 @@ export class ShoppingCartService {
 
   constructor(public eventsData: EventsDataService) { }
 
-  addEvent(id: string) {
+  addEventToShoppingCart(id: string) {
     if (!this.selectedEventIDs.includes(id)) {
       this.selectedEventIDs.push(id)
+      this.selectedEvents.push(this.eventsData.getEventbyID(id))
       this.eventsData.removeUnselectedEvent(id)
     }
-
   }
 
   getEventsCount() {
@@ -24,9 +24,6 @@ export class ShoppingCartService {
   }
 
   getSelectedEvents() {
-    this.selectedEventIDs.forEach(eventID => {
-      this.selectedEvents.push(this.eventsData.getEventbyID(eventID))
-    })
     return this.selectedEvents
   }
 }
