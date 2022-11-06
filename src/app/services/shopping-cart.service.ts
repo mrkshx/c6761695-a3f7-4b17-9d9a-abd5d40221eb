@@ -12,7 +12,7 @@ export class ShoppingCartService {
 
   constructor(public eventsData: EventsDataService) { }
 
-  addEventToShoppingCart(id: string) {
+  addEventToShoppingCart(id: string): void {
     if (!this.selectedEventIDs.includes(id)) {
       this.selectedEventIDs.push(id)
       const event = this.eventsData.getEventbyID(id) 
@@ -23,11 +23,11 @@ export class ShoppingCartService {
     }
   }
 
-  getEventsCount() {
+  getEventsCount(): number {
     return this.selectedEventIDs.length
   }
 
-  getSelectedEvents() {
+  getSelectedEvents(): Event[] {
     return this.selectedEvents
   }
 }

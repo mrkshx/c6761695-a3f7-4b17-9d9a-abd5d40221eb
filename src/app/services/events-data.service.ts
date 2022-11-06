@@ -18,7 +18,7 @@ export class EventsDataService {
     this.fetchEventsData()
   }
 
-  getEventsData() {
+  getEventsData(): Event[] {
     return this.filteredEventsData
   }
 
@@ -26,7 +26,7 @@ export class EventsDataService {
     return this.eventsData.find((eventData: Event )=> eventData._id == id)
   }
 
-  saveDates() {
+  saveDates(): void {
     this.filteredEventsData.forEach((event: Event) => {
         if (!this.dates.includes(event.date)) {
           this.dates.push(event.date)
@@ -36,12 +36,12 @@ export class EventsDataService {
     this.datesSubject.next(this.dates)
   }
 
-  removeUnselectedEvent(id: string) {
+  removeUnselectedEvent(id: string): void {
     const eventIndex = this.filteredEventsData.findIndex((eventData: Event) => eventData._id === id)
     this.filteredEventsData.splice(eventIndex, 1)
   }
 
-  fetchEventsData() {
+  fetchEventsData(): void {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
