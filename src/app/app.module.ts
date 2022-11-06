@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     MatBadgeModule,
     MatCardModule,
     MatListModule,
+    MatTooltipModule,
     HttpClientModule,
   ],
   providers: [],
