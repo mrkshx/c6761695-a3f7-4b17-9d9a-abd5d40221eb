@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
+import { Event } from '../models/event.model'
 @Injectable({
   providedIn: 'root',
 })
+
 export class EventsDataService {
-  private eventsData: any[] = []
-  private filteredEventsData: any[] = []
+  private eventsData: Event[] = []
+  private filteredEventsData: Event[] = []
   private dates: string[] = []
   
   public filterKeywordSubject = new Subject<string>();
@@ -17,16 +18,16 @@ export class EventsDataService {
     this.fetchEventsData()
   }
 
-  getEventsData() {
+  getEventsData(): Event[] {
     return this.filteredEventsData
   }
 
-  getEventbyID(id: string) {
-    return this.eventsData.find(event => event._id == id)
+  getEventbyID(id: string): Event | undefined{
+    return this.eventsData.find((eventData: Event )=> eventData._id == id)
   }
 
-  saveDates() {
-    this.filteredEventsData.forEach((event: any) => {
+  saveDates(): void {
+    this.filteredEventsData.forEach((event: Event) => {
         if (!this.dates.includes(event.date)) {
           this.dates.push(event.date)
         }
@@ -35,16 +36,16 @@ export class EventsDataService {
     this.datesSubject.next(this.dates)
   }
 
-  removeUnselectedEvent(id: string) {
-    const eventIndex = this.filteredEventsData.findIndex(e => e._id === id)
+  removeUnselectedEvent(id: string): void {
+    const eventIndex = this.filteredEventsData.findIndex((eventData: Event) => eventData._id === id)
     this.filteredEventsData.splice(eventIndex, 1)
   }
 
-  fetchEventsData() {
+  fetchEventsData(): void {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
-        Object.values(data).forEach((event) => {
+        Object.values(data).forEach((event: Event) => {
           this.filteredEventsData.push(event)
           this.eventsData.push(event)
         });
