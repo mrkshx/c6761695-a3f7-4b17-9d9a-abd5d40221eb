@@ -22,7 +22,7 @@ export class EventsDataService {
     return this.filteredEventsData
   }
 
-  getEventbyID(id: string) {
+  getEventbyID(id: string): Event | undefined{
     return this.eventsData.find((eventData: Event )=> eventData._id == id)
   }
 
