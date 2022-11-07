@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     EventsContainerComponent,
     EventCardComponent,
     ShoppingCartComponent,
+    ShoppingCartItemComponent,
   ],
   imports: [
     BrowserModule,

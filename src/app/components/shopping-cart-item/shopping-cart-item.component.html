@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <mat-card-subtitle>{{ venueName }} on {{ date | date: "dd.MM.YYYY" }}</mat-card-subtitle>
+  <button
+      class="remove-event-btn"
+      mat-mini-fab
+      color="primary"
+      aria-label="Remove event from shopping cart"
+      (click)="removeItem()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+</mat-card>
+<mat-divider></mat-divider>

@@ -23,6 +23,19 @@ export class ShoppingCartService {
     }
   }
 
+  removeEventFromShoppingCart(id: string): void {
+    if (this.selectedEventIDs.includes(id)) {
+      const index = this.selectedEventIDs.indexOf(id)
+      this.selectedEventIDs.splice(index, 1)
+      const event = this.eventsData.getEventbyID(id) 
+      if (event !== undefined) {
+        const index = this.selectedEvents.findIndex(event => event._id === id)
+        this.selectedEvents.splice(index, 1)
+      }
+      this.eventsData.addUnselectedEvent(id)
+    }
+  }
+
   getEventsCount(): number {
     return this.selectedEventIDs.length
   }
