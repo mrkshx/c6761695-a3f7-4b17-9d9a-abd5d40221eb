@@ -7,11 +7,11 @@ import { EventsDataService } from 'src/app/services/events-data.service';
   styleUrls: ['./events-view.component.sass'],
 })
 export class EventsViewComponent implements OnInit {
-  constructor(public eventsData: EventsDataService) {}
 
-  ngOnInit(): void {}
 
-  getDates(): string[] {
-    return this.eventsData.getDates()
+  constructor(public eventsData: EventsDataService) {
+  }
+
+  ngOnInit(): void {
   }
 }
