@@ -1,4 +1,7 @@
 <mat-card>
     <h2>{{ title }}</h2>
     <p>{{ venueName }} on {{ date | date: "dd.MM.YYYY" }}</p>
+    <button mat-icon-button aria-label="Remove event from shopping cart" (click)="removeItem()">
+        <mat-icon>delete</mat-icon>
+    </button>
 </mat-card>

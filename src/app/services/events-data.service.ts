@@ -43,6 +43,13 @@ export class EventsDataService {
     this.filteredEventsData.splice(eventIndex, 1)
   }
 
+  addUnselectedEvent(id: string): void {
+    const unselectedEvent = this.getEventbyID(id)
+    if (unselectedEvent !== undefined && !this.filteredEventsData.includes(unselectedEvent)) {
+      this.filteredEventsData.push(unselectedEvent as Event)
+    }
+  }
+
   fetchEventsData(): void {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)

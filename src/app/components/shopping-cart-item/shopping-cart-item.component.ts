@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart-item',
@@ -12,9 +13,13 @@ export class ShoppingCartItemComponent implements OnInit {
   @Input() date: string = ''
 
 
-  constructor() { }
+  constructor(public shoppingCart: ShoppingCartService) { }
 
   ngOnInit(): void {
+  }
+
+  removeItem(): void {
+    this.shoppingCart.removeEventFromShoppingCart(this.id)
   }
 
 }
