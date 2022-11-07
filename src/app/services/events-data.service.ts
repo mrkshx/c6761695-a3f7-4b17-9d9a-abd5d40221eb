@@ -12,7 +12,6 @@ export class EventsDataService {
   private dates: string[] = []
   
   public filterKeywordSubject = new Subject<string>();
-  public datesSubject = new Subject<string[]>();
 
   constructor(private http: HttpClient) {
     this.fetchEventsData()
@@ -33,7 +32,10 @@ export class EventsDataService {
         }
     })
     this.dates.sort()
-    this.datesSubject.next(this.dates)
+  }
+
+  getDates(): string[] {
+    return this.dates
   }
 
   removeUnselectedEvent(id: string): void {
@@ -45,10 +47,8 @@ export class EventsDataService {
     this.http
       .get(`https://tlv-events-app.herokuapp.com/events/uk/london`)
       .subscribe((data) => {
-        Object.values(data).forEach((event: Event) => {
-          this.filteredEventsData.push(event)
-          this.eventsData.push(event)
-        });
+        this.filteredEventsData = Object.values(data)
+        this.eventsData = Object.values(data)
         this.saveDates()
       });
   }
