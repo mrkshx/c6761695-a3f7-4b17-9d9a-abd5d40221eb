@@ -4,8 +4,8 @@ import { EventsViewComponent } from './components/events-view/events-view.compon
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
-  { path: 'events', component: EventsViewComponent },
-  { path: 'shoppingcart', component: ShoppingCartComponent },
+  { path: 'events', component: EventsViewComponent, title: 'Events' },
+  { path: 'shoppingcart', component: ShoppingCartComponent, title: 'Shopping cart' },
   { path: '', redirectTo: '/events', pathMatch: 'full' }
 
 ];
